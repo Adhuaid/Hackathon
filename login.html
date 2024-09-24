@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Elevate LMS Login</title>
+  <link href="\assets\img\favicon.ico" rel="icon">
+  <!-- Carbon Design System -->
+  <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+  <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      background-image: url('https://www.ibm.com/design/workplace/static/371e3f32f6c74265b64a059a846662c9/490e5/R15C2lg-1695926409816.jpg');
+      background-size: cover; /* Ensures the image covers the entire background */
+      background-position: center; /* Centers the background image */
+      font-family: 'IBM Plex Sans', sans-serif;
+      height: 100vh; /* Full height for the body */
+      margin: 0; /* Remove default margin */
+    }
+    .form-container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for better readability */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    .form-container h2 {
+      margin-bottom: 20px;
+    }
+    .bx--label {
+      margin-bottom: 10px;
+    }
+    .bx--btn {
+      width: 100%;
+      margin-top: 20px;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+      display: none;
+    }
+    .signup-btn {
+      margin-top: 10px;
+      background-color: #5fcf80; /* Accent color for signup button */
+      border: none;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+    .signup-btn:hover {
+      background-color: #4abf6e; /* Darker shade on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h2 class="bx--type-expressive-heading-04">Elevate LMS Login</h2>
+
+    <!-- Login Form -->
+    <div id="login-form">
+      <!-- Username Input -->
+      <div class="bx--form-item">
+        <label for="login-username" class="bx--label">Username</label>
+        <input type="text" id="login-username" class="bx--text-input" placeholder="Enter your username">
+      </div>
+
+      <!-- Password Input -->
+      <div class="bx--form-item">
+        <label for="login-password" class="bx--label">Password</label>
+        <input type="password" id="login-password" class="bx--text-input" placeholder="Enter your password">
+      </div>
+
+      <!-- Login Button -->
+      <button class="bx--btn bx--btn--primary" id="login-btn" type="button">Log in</button>
+
+      <!-- Signup Button -->
+      <button class="signup-btn" id="signup-btn" type="button" onclick="window.location.href='signup.html';">Sign Up</button>
+
+      <!-- Error Message -->
+      <p class="error" id="error-message">Invalid username or password</p>
+    </div>
+  </div>
+
+  <script>
+    // Hardcoded credentials
+    const validUsername = 'ibmice';
+    const validPassword = 'ibmpass';
+
+    // Get elements
+    const loginBtn = document.getElementById('login-btn');
+    const errorMessage = document.getElementById('error-message');
+
+    // Login button click event
+    loginBtn.addEventListener('click', function() {
+      const username = document.getElementById('login-username').value;
+      const password = document.getElementById('login-password').value;
+
+      // Check if the username and password match the hardcoded credentials
+      if (username === validUsername && password === validPassword) {
+        // Redirect to index.html on successful login
+        window.location.href = 'index.html';
+      } else {
+        errorMessage.style.display = 'block';  // Show error message
+      }
+    });
+  </script>
+</body>
+</html>
